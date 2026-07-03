@@ -1,0 +1,365 @@
+/* Premium Color Palette & Atmospheric Tokens */
+:root {
+    /* Advanced Mesh Gradient Background Layering */
+    --bg-app: #fafafa;
+    --mesh-gradient: 
+        radial-gradient(at 0% 0%, rgba(243, 232, 255, 0.7) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(219, 234, 254, 0.7) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(254, 243, 199, 0.4) 0px, transparent 50%);
+    
+    --bg-sidebar: #090d16;
+    --sidebar-hover: #172033;
+    --accent-blue: #2563eb;
+    --accent-glow: rgba(37, 99, 235, 0.15);
+    
+    /* Modern Glassmorphism Card System */
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --card-border: rgba(226, 232, 240, 0.8);
+    --text-primary: #0f172a;
+    --text-muted: #64748b;
+    
+    --success-bg: rgba(236, 253, 245, 0.9);
+    --success-text: #059669;
+    --danger-bg: rgba(254, 242, 242, 0.9);
+    --danger-text: #dc2626;
+    --warning-bg: rgba(255, 251, 235, 0.9);
+    --warning-text: #d97706;
+    
+    --radius-lg: 16px;
+    --radius-md: 10px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.02);
+    --shadow-md: 0 20px 40px -15px rgba(15, 23, 42, 0.05);
+    --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--bg-app);
+    background-image: var(--mesh-gradient);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Optional Blueprint grid background layer over the gradient */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(15, 23, 42, 0.015) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(15, 23, 42, 0.015) 1px, transparent 1px);
+    background-size: 30px 30px;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+
+/* ==================== HIGH-END LOGIN VIEW ==================== */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 24px;
+}
+
+.login-container h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    margin-bottom: 28px;
+    background: linear-gradient(135deg, #0f172a 0%, #2563eb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.login-box {
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    width: 100%;
+    max-width: 420px;
+    border: 1px solid var(--card-border);
+}
+
+.login-box h2 {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 24px;
+    font-weight: 500;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* ==================== SAAS DASHBOARD GRID ==================== */
+.dashboard {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    min-height: 100vh;
+}
+
+/* Left Sidebar Navigation */
+.sidebar-panel {
+    background-color: var(--bg-sidebar);
+    color: #ffffff;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.sidebar-brand h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 48px;
+    background: linear-gradient(to right, #ffffff, #93c5fd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.sidebar-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar-menu li {
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    color: #94a3b8;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sidebar-menu li.active {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #38bdf8;
+}
+
+.sidebar-menu li:hover:not(.active) {
+    background-color: var(--sidebar-hover);
+    color: #f1f5f9;
+}
+
+#logoutBtn {
+    background: rgba(239, 68, 68, 0.08);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.15);
+    padding: 12px;
+    width: 100%;
+    margin-top: auto;
+    font-weight: 600;
+}
+
+#logoutBtn:hover {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+}
+
+/* Main Content Workspace Space */
+.main-window {
+    padding: 44px 56px;
+    overflow-y: auto;
+}
+
+.window-header {
+    margin-bottom: 36px;
+}
+
+.window-header h1 {
+    font-size: 2.1rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: var(--text-primary);
+}
+
+/* Dashboard Component Split Grid Layout */
+.dashboard-content {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 36px;
+    align-items: start;
+}
+
+.lead-form, .lead-list {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 32px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--card-border);
+}
+
+.lead-form h3, .list-header h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+.lead-form h3 {
+    margin-bottom: 24px;
+}
+
+/* Interactive Input Styling */
+input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid rgba(203, 213, 225, 0.6);
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    background-color: rgba(248, 250, 252, 0.7);
+    color: var(--text-primary);
+    transition: var(--transition);
+    margin-bottom: 18px;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px var(--accent-glow);
+}
+
+input::placeholder {
+    color: #94a3b8;
+}
+
+button {
+    width: 100%;
+    background: var(--accent-blue);
+    color: #ffffff;
+    border: none;
+    padding: 14px 20px;
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+
+button:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.25);
+}
+
+/* Lead Table Header Space Controls */
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.list-header input {
+    max-width: 340px;
+    margin-bottom: 0;
+    background-color: rgba(241, 245, 249, 0.8);
+    border-color: transparent;
+}
+
+.list-header input:focus {
+    background-color: #ffffff;
+}
+
+/* Premium Responsive Tables */
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    text-align: left;
+}
+
+th, td {
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+    font-size: 0.95rem;
+}
+
+th {
+    background-color: rgba(248, 250, 252, 0.5);
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+}
+
+tr:hover td {
+    background-color: rgba(248, 250, 252, 0.4);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Badge Styled Table Controls */
+.action-btns {
+    display: flex;
+    gap: 8px;
+}
+
+.edit-btn, .delete-btn {
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    width: auto;
+    box-shadow: none;
+    border-radius: 6px;
+}
+
+.edit-btn { background: var(--warning-bg); color: var(--warning-text); }
+.edit-btn:hover { background: #fef3c7; }
+
+.delete-btn { background: var(--danger-bg); color: var(--danger-text); }
+.delete-btn:hover { background: #fee2e2; }
+
+/* ==================== RESPONSIVE DESIGN INTERSECTIONS ==================== */
+@media (max-width: 1120px) {
+    .dashboard { grid-template-columns: 1fr; }
+    .sidebar-panel { display: none; }
+}
+
+@media (max-width: 840px) {
+    .dashboard-content { grid-template-columns: 1fr; }
+    .list-header { flex-direction: column; align-items: stretch; gap: 16px; }
+    .list-header input { max-width: 100%; }
+    .main-window { padding: 32px 20px; }
+}

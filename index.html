@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Management System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="login-container" id="loginContainer">
+        <h1>LeadManager Pro</h1>
+        <div class="login-box">
+            <h2>Sign in to your dashboard</h2>
+            <form id="loginForm">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="dashboard" id="dashboard" style="display:none;">
+        
+        <aside class="sidebar-panel">
+            <div class="sidebar-brand">
+                <h2>LeadManager</h2>
+                <ul class="sidebar-menu">
+                    <li class="active">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+                        Leads Database
+                    </li>
+                </ul>
+            </div>
+            <button id="logoutBtn">Sign Out</button>
+        </aside>
+
+        <main class="main-window">
+            <header class="window-header">
+                <h1>Leads Overview</h1>
+            </header>
+
+            <div class="dashboard-content">
+                <div class="lead-form">
+                    <h3 id="formTitle">Add New Lead</h3>
+                    <input type="hidden" id="editIndex">
+                    <input type="text" id="leadName" placeholder="Client Name" required>
+                    <input type="email" id="leadEmail" placeholder="Client Email" required>
+                    <input type="text" id="leadPhone" placeholder="Phone Number" required>
+                    <button id="addLeadBtn">Add Lead</button>
+                    <button id="cancelEditBtn" style="display: none; background: #64748b; margin-top: 10px;">Cancel Edit</button>
+                </div>
+
+                <div class="lead-list">
+                    <div class="list-header">
+                        <h3>Active Submissions</h3>
+                        <input type="text" id="searchBar" placeholder="🔍 Search profiles instantly...">
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="leadTable"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
